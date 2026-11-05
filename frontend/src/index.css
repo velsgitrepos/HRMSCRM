@@ -1,0 +1,237 @@
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #F6F9FA;
+    color: #1e293b;
+    /* slate-800 */
+    @apply font-sans antialiased transition-colors duration-300;
+    overflow-x: clip;
+    line-height: 1.6;
+    letter-spacing: 0.005em;
+    background-image: radial-gradient(circle at 10% 20%, #ffffff 0%, #F6F9FA 90%);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'General Sans', sans-serif;
+    font-weight: 600;
+    line-height: 1.25;
+    letter-spacing: -0.01em;
+  }
+
+  .dark body {
+    background-color: #1E378B;
+    color: #F6F9FA;
+    background-image: radial-gradient(circle at 10% 20%, #1E378B 0%, #112361 90%);
+  }
+
+  /* Custom Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: #F6F9FA;
+  }
+
+  .dark ::-webkit-scrollbar-track {
+    background-color: #112361;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: #cbd5e1;
+    /* slate-300 */
+    border: 1px solid #e2e8f0;
+    /* slate-200 */
+    border-radius: 9999px;
+    transition: background-color 0.3s ease;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #75BB3F;
+    /* secondary green */
+  }
+
+  .dark ::-webkit-scrollbar-thumb {
+    background-color: #314FA7;
+    /* primary-light */
+    border: 1px solid rgba(226, 232, 240, 0.15);
+    /* light-dark/15 */
+    border-radius: 9999px;
+    transition: background-color 0.3s ease;
+  }
+
+  .dark ::-webkit-scrollbar-thumb:hover {
+    background-color: #75BB3F;
+    /* secondary green */
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(30, 55, 139, 0.08);
+    box-shadow: 0 8px 32px 0 rgba(30, 55, 139, 0.04);
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .dark .glass-card {
+    background: rgba(17, 35, 97, 0.55);
+    border: 1px solid rgba(246, 249, 250, 0.07);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.25);
+  }
+
+  .glass-nav {
+    background: linear-gradient(90deg, rgba(232, 245, 233, 0.96) 0%, rgba(240, 248, 236, 0.94) 100%);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+    border-bottom: 1px solid rgba(117, 187, 63, 0.15);
+    box-shadow: 0 2px 12px 0 rgba(117, 187, 63, 0.06);
+    transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .dark .glass-nav {
+    background: rgba(30, 55, 139, 0.85);
+    border-bottom: 1px solid rgba(246, 249, 250, 0.08);
+  }
+
+  .glow-btn-blue {
+    position: relative;
+    overflow: hidden;
+    @apply bg-primary hover:bg-primary-dark text-light font-medium px-6 py-3 rounded-full transition-all duration-300 shadow-glow-primary hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .glow-btn-green {
+    position: relative;
+    overflow: hidden;
+    @apply bg-secondary hover:bg-secondary-dark text-white font-medium px-6 py-3 rounded-full transition-all duration-300 shadow-glow-secondary hover:-translate-y-0.5 active:translate-y-0;
+  }
+
+  .text-gradient-blue-green {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-blue-500 to-secondary;
+  }
+}
+
+/* Custom animations helper */
+.animate-glow {
+  animation: borderGlow 4s infinite alternate;
+}
+
+@keyframes borderGlow {
+  0% {
+    border-color: rgba(30, 55, 139, 0.2);
+    box-shadow: 0 0 15px rgba(30, 55, 139, 0.05);
+  }
+
+  100% {
+    border-color: rgba(117, 187, 63, 0.3);
+    box-shadow: 0 0 25px rgba(117, 187, 63, 0.15);
+  }
+}
+
+/* Premium moving gradient and float-blob animations for Hero Section */
+.animate-moving-gradient {
+  background: linear-gradient(-45deg, #1E378B, #112361, #5C9430, #75BB3F);
+  background-size: 400% 400%;
+  animation: gradientShift 15s ease infinite;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes floatBlob {
+  0% {
+    transform: translate(0px, 0px) scale(1);
+  }
+
+  33% {
+    transform: translate(35px, -55px) scale(1.1);
+  }
+
+  66% {
+    transform: translate(-25px, 25px) scale(0.95);
+  }
+
+  100% {
+    transform: translate(0px, 0px) scale(1);
+  }
+}
+
+.animate-float-blob {
+  animation: floatBlob 16s infinite ease-in-out;
+}
+
+.animate-float-blob-reverse {
+  animation: floatBlob 20s infinite ease-in-out reverse;
+}
+
+/* Lenis smooth scrolling support */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+  pointer-events: none;
+}
+
+/* Infinite horizontal marquee ticker */
+@keyframes marquee {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 25s linear infinite;
+  will-change: transform;
+}
+
+/* Hide scrollbar utility class */
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-none {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

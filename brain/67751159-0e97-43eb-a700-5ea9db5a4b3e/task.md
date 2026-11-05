@@ -1,0 +1,41 @@
+# Implementation Tasks for Talent Carpet
+
+- [x] **Setup Backend Directory & Server**
+  - [x] Initialize `backend/package.json` & install node packages
+  - [x] Create environment file `.env` & DB connection helper `src/config/db.js`
+  - [x] Implement Mongoose models: `Admin`, `Team`, `Testimonial`, `Career`
+  - [x] Implement middleware: JWT authenticator (`auth.js`), Multer upload config (`upload.js`)
+  - [x] Implement controller & route layers for Auth, Team, Testimonial, and Careers
+  - [x] Create seed script `src/config/seed.js` for default admin and initial items
+  - [x] Setup `server.js` to serve static files and handle requests
+- [x] **Setup Frontend Directory & Base Config**
+  - [x] Initialize Vite React frontend with `npx create-vite-app` or equivalent, then setup Tailwind CSS v3
+  - [x] Create styling directives in `index.css` (customizing fonts, scrollbars, premium glassmorphism utility classes)
+  - [x] Configure `tailwind.config.js` with Navy Blue and Emerald Green palettes
+- [x] **Frontend Core Layout & Routing**
+  - [x] Build global `AuthContext` to handle JWT login/logout state
+  - [x] Create fully responsive sticky `Navbar` with floating Call / WhatsApp actions
+  - [x] Create premium `Footer` with site map, careers link, and contact info
+  - [x] Set up routing in `App.jsx` for all pages including protected `/admin/dashboard`
+- [x] **Frontend Pages & Interactive Features**
+  - [x] Create **Home Page**: Hero banner (with GSAP/Framer Motion), About preview, Why Choose section, Services previews, Recruitment process timeline, Team carousel, Testimonial slider, and CTA
+  - [x] Create **About Page**: Company story, mission/vision, core values, and structured office photo grid
+  - [x] Create **Services Page**: Beautiful premium cards showcasing the 8 services
+  - [x] Create **Contact Page**: Modern form, contact details, responsive embedded Google Maps, Call & WhatsApp quick links
+  - [x] Create **Admin Login & Dashboard**:
+    - [x] Login screen with glassmorphic cards
+    - [x] Team management tab (Add/Edit/Delete with photo uploads)
+    - [x] Testimonials management tab (Add/Edit/Delete with photo uploads)
+    - [x] Careers job management tab (Add/Edit/Delete with open/closed status toggle)
+- [x] **Verification & Polishing**
+  - [x] Seed the DB and test Admin login
+  - [x] Manually test all CRUD endpoints via Admin dashboard
+  - [x] Verify animations, layout responsiveness, and fast page load speeds
+
+- [x] **UI Redesign with New Brand Colors**
+  - [x] Update `tailwind.config.js` with `primary`, `secondary`, and `light` custom hex palettes
+  - [x] Modify `src/index.css` backgrounds, scrollbar styles, and glassmorphism rules
+  - [x] Update structural layout components: `Navbar.jsx`, `Footer.jsx`
+  - [x] Update corporate pages: `Home.jsx`, `About.jsx`, `Services.jsx`, `Contact.jsx`, `Careers.jsx`
+  - [x] Redesign Admin authentication & CMS portal (`AdminLogin.jsx`, `AdminDashboard.jsx`) to clean Zoho SaaS dashboard style
+  - [x] Perform site-wide visual check and functional testing

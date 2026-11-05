@@ -1,0 +1,12 @@
+{
+  "name": "talent-carpet1",
+  "private": true,
+  "scripts": {
+    "dev": "concurrently \"npm --prefix frontend run dev\" \"npm --prefix backend run dev\"",
+    "frontend": "npm --prefix frontend run dev",
+    "backend": "npm --prefix backend run dev"
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.1"
+  }
+}
